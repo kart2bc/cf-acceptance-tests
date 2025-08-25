@@ -121,6 +121,11 @@ namespace nora.Controllers
         [HttpGet]
         public IHttpActionResult PrintErr(string output)
         {
+            // Add before your error line to confirm execution path
+Console.WriteLine("About to write error message");
+Console.Error.WriteLine(output);
+Console.Error.Flush();
+Console.WriteLine("Error message written");
             Console.Error.Write(output + Environment.NewLine);
 	    Console.Error.Flush();
             return Ok(Request.Headers);

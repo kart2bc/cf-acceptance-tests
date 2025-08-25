@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Web.Http;
+using System.IO;
+using System.Text;
 
 namespace Nora
 {
@@ -8,6 +10,11 @@ namespace Nora
     {
         protected void Application_Start()
         {
+                var autoFlushError = new StreamWriter(Console.OpenStandardError(), Console.OutputEncoding)
+    {
+        AutoFlush = true
+    };
+    Console.SetError(autoFlushError);
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
 

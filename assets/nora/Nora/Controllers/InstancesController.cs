@@ -117,11 +117,11 @@ namespace nora.Controllers
             return Ok(Request.Headers);
         }
 
-        [Route("~/printerr/{output}")]
+        [Route("~/print_err/{output}")]
         [HttpGet]
         public IHttpActionResult PrintErr(string output)
         {
-            Console.Error.WriteLine(output);
+            Console.Error.Write(output + Environment.NewLine);
 	    Console.Error.Flush();
             return Ok(Request.Headers);
         }
